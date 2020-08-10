@@ -93,3 +93,51 @@ def insertion_sort(lst):
 print('INSERTION SORT:')
 list_to_sort = [5,2,3,8,6,9,1,4,7]
 insertion_sort(list_to_sort)
+
+
+#----------------------------------------------------------------------
+# MERGE SORT   - nlogn
+#
+# Break the list into lists of length one then merge adjacent lists
+# (left and right) recursively in sorted order
+#----------------------------------------------------------------------
+
+def mergesort(lst):
+
+    # if the list has only one item return
+    if len(lst) <= 1:
+        return lst
+    else:
+        # split the list into 2 and call mergesort on the left and right sides
+        middle = len(lst)//2 # return an integer
+        # sort the left side and sort then right side - recursive
+        left = mergesort(lst[:middle])
+        right = mergesort(lst[middle:])
+        print(left)
+        print(right)
+
+        newlist = []
+        # while both lists are not of zero length
+        while len(left) and len(right) > 0:
+            if left[0] < right[0]:
+                # add the lowest left to the new list and delete from left
+                newlist.append(left[0])
+                del left[0]
+            else:
+                # add the lowest right to the new list and delete from right
+                newlist.append(right[0])
+                del right[0]
+
+        # one of these lists is empty, the other is sortend and added to the end
+        newlist.extend(right)
+        newlist.extend(left)
+
+        return newlist
+
+
+# Test MERGE SORT
+print('MERGE SORT')
+print(mergesort([2, 5, 3, 8, 6, 9, 1, 4, 7]))
+#
+# Other sorts: shell sort, heap sort, quick sort
+#
