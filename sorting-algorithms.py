@@ -1,8 +1,13 @@
-#---------------------------------------------
-# Bubble Sort - runs in an O(n^2)
-#--------------------------------------------- 
+#----------------------------------------------------------------------
+# BUBBLE SORT    - runs in an O(n^2)
+#
+# Go through the list and compare items 2 at a time. If they are in 
+# the wrong order, swap them. Go through the list again comparing 
+# and swapping until there are no more swaps.
+#----------------------------------------------------------------------
 def sort_with_bubbles(lst):
     swap_occurred = True
+    print(lst)
     
     #Run the loop as long as a swap occurred the previous time
     while swap_occurred:
@@ -16,18 +21,21 @@ def sort_with_bubbles(lst):
                 lst[i] = lst[i + 1]
                 lst[i + 1] = temp
                 swap_occurred = True
+                print(lst)
 
     return lst
 
-#Test
-#
-#If your function works correctly, this will originally
-#print: [1, 2, 3, 4, 5]
-print('Bubble Sort :',sort_with_bubbles([5, 3, 1, 2, 4]))
+# Test BUBBLE SORT
+print('BUBBLE SORT :')
+sort_with_bubbles([2,5,3,8,6,9,1,4,7])
 
-#---------------------------------------------
-# Selection Sort - runs in an O(n^2)
-#--------------------------------------------- 
+#----------------------------------------------------------------------
+# SELECTION SORT    - runs in an O(n^2)
+#
+# Look through the list for the lowest element and move it to the front.
+# Then look through the remaining list and move the next lowest element 
+# to the front. Repeat for the length of the list.
+#----------------------------------------------------------------------
 def selection_sort(lst):
 
     # start the sort at the beginning of the list
@@ -47,7 +55,41 @@ def selection_sort(lst):
         next_start+=1 
         print(next_start,':',lst)
 
-# Test Selection Sort
-print('Selection Sort:')
+# Test SELECTION SORT
+print('SELECTION SORT:')
 list_to_sort = [2,5,3,8,6,9,1,4,7]
 selection_sort(list_to_sort)
+
+
+#----------------------------------------------------------------------
+# INSERTION SORT    - runs in an O(n^2)
+#
+# Step through the unsorted list and if the next item is out of order,
+# insert it in the correct order of the items we have already sorted .
+#----------------------------------------------------------------------
+def insertion_sort(lst):
+    
+    print(lst)
+    # sort the first two
+    if lst[0] > lst[1]:
+        lst[0],lst[1] = lst[1],lst[0]
+    print(lst)
+    next_idx = 2
+
+    # then go through each element from the 3rd to the end and move it to the sorted side
+    while next_idx < len(lst):
+        sort_me = next_idx
+        # move the sort_me element left until it's correctly sorted
+        while sort_me > 0:
+            if lst[sort_me] < lst[sort_me - 1]:
+                lst[sort_me],lst[sort_me - 1] = lst[sort_me - 1],lst[sort_me] # swap
+                print(lst)
+                sort_me-=1
+            else:
+                sort_me = 0 # done. this element is sorted now
+        next_idx+=1
+
+# Test INSERTION SORT
+print('INSERTION SORT:')
+list_to_sort = [5,2,3,8,6,9,1,4,7]
+insertion_sort(list_to_sort)
