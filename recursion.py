@@ -28,13 +28,13 @@ print("exponent_calc(",b,",",e,") =", exponent_calc(b, e))
 #---------------------------------------------
 
 def count_down(start): # tail recursion
-    #If we've reached 0 already, print 0 but do not call
-    #another copy
+    # if we've reached 0 already, print 0 but do not call
+    # another copy
     if start <= 0:
         print(start)
     
-    #If we haven't reached 0 yet, print the current number,
-    #then call count_down with the current number minus 1.
+    # if we haven't reached 0 yet, print the current number,
+    # then call count_down with the current number minus 1.
     else:
         print(start)
         count_down(start - 1)
@@ -57,6 +57,7 @@ def count_down3(start): # without recursion or python functions
         start -= 1
 # Test
 count_down4(5)
+count_down3(6)
 
 #---------------------------------------------
 # Fibonacci - build a dictionary as you go
