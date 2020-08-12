@@ -96,7 +96,7 @@ insertion_sort(list_to_sort)
 
 
 #----------------------------------------------------------------------
-# MERGE SORT   - nlogn
+# MERGE SORT   - O(n log n)
 #
 # Break the list into lists of length one then merge adjacent lists
 # (left and right) recursively in sorted order

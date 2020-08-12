@@ -37,7 +37,7 @@ def binary_search(searchList, searchTerm):
     while min <= max:
         print("Searching for", searchTerm, "in", searchList[min:max+1])
         
-        # Find the middle - use integer math
+        # Find the middle - floor division
         currentMiddle = (min + max) // 2
 
         if searchList[currentMiddle] == searchTerm:
